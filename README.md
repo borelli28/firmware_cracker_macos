@@ -1,2 +1,8 @@
 # firmware_cracker_macos
-A brute force python script to crack the macos firmware password using password lists
+This brute force script is specifically designed to bruteforce the firmware password of MacOS systems using the macos utility firmwarepasswd -setpasswd
+
+### Usage
+
+Clone repo
+
+Create .env file with 
