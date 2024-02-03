@@ -6,6 +6,9 @@ This brute force script is specifically designed to bruteforce the firmware pass
 Clone repo
 `git clone https://github.com/borelli28/firmware_cracker_macos.git`
 
+Install dependencies
+`pip install -r requirements.txt`
+
 Create .env file in project root directory and put your sudo password and new firmware password here,
 `SUDO_PASSWD='YourSudoPasswordHere'`
 `NEW_FIRMAWARE_PASSWD='MyNewFirmwarePasswordHere'`
