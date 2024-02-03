@@ -12,12 +12,12 @@ Install dependencies
 Create .env file in project root directory and put your sudo password and new firmware password here,
 `SUDO_PASSWD='YourSudoPasswordHere'`
 
-`NEW_FIRMAWARE_PASSWD='MyNewFirmwarePasswordHere'`
+`NEW_FIRMAWARE_PASSWD='YourNewFirmwarePasswordHere'`
 
-or replace the environment variables in brute.py with your passwords
+or replace the environment variables in brute.py with your passwords,
 `child.sendline('YourSudoPasswordHere') # Replace with sudo password here`
 
-`child.sendline('MyNewFirmwarePasswordHere')  # Replace with new firmware password here`
+`child.sendline('YourNewFirmwarePasswordHere')  # Replace with new firmware password here`
 
 You need a password list and replace the path in brute.py
 `with open('./rockyou.txt', 'r') as file:`
