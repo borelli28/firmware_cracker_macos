@@ -3,18 +3,22 @@ import time
 from dotenv import load_dotenv
 import os
 
-# Load secret passwords from .env
+
+# Load secret password from .env
 load_dotenv()
 SUDO_PASSWD = os.getenv("SUDO_PASSWD")
-NEW_FIRMWARE_PASSWD = os.getenv("NEW_FIRMWARE_PASSWD")
 
 with open('./passwd-lists/100K-passwords.txt', 'r') as file:
     passwords = file.readlines()
 
+counter = 1
 for password in passwords:
     password = password.strip()  # Remove any leading/trailing whitespaces
 
-    child = pexpect.spawn('sudo firmwarepasswd -setpasswd')
+    print(counter)
+    print(f"Trying:.... {password}")
+
+    child = pexpect.spawn('sudo firmwarepasswd -delete')
 
     # Wait for the sudo password prompt and enter the password
     child.expect('Password:')
@@ -24,16 +28,11 @@ for password in passwords:
     child.expect('Enter password:')
     child.sendline(password)
 
-    # Enter new password
-    child.expect('Enter new password:')
-    child.sendline(NEW_FIRMWARE_PASSWD)  # Replace with new firmware password here
-    child.expect('Re-enter new password:')
-    child.sendline(NEW_FIRMWARE_PASSWD)  # Replace with new firmware password here
-
     # Wait for the password to finish and capture the output
     child.expect(pexpect.EOF)
     output = child.before.decode()
     print(f"Output for password '{password}':\n{output}")
 
     child.close()
-    time.sleep(1)
+    time.sleep(0.1)
+    counter += 1
