@@ -13,7 +13,7 @@ with open('./passwd-lists/100K-passwords.txt', 'r') as file:
 
 counter = 1
 for password in passwords:
-    password = password.strip()  # Remove any leading/trailing whitespaces
+    password = password.strip()
 
     print(counter)
     print(f"Trying:.... {password}")
@@ -22,7 +22,7 @@ for password in passwords:
 
     # Wait for the sudo password prompt and enter the password
     child.expect('Password:')
-    child.sendline(SUDO_PASSWD) # Replace with sudo password here
+    child.sendline(SUDO_PASSWD)
 
     # Enter the current firmware password
     child.expect('Enter password:')
