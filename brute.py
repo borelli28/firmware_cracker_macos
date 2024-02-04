@@ -31,7 +31,7 @@ for password in passwords:
     # Wait for the password to finish and capture the output
     child.expect(pexpect.EOF)
     output = child.before.decode()
-    print(f"Output for password '{password}':\n{output}")
+    print(f"\n{output}\n")
 
     child.close()
     time.sleep(0.1)
